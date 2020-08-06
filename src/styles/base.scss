@@ -1,0 +1,54 @@
+$blue: #4196F7;
+$green: #15BC83;
+$red: #E8380D;
+$red2: #FF5F5F;
+$orange: #FF943E;
+$fff: #ffffff;
+$gray: #999999;
+$gray2: #ccc;
+
+// $black: #333;
+
+/*
+* 字体图标路径
+ */
+
+/*
+* 显示省略号
+ */
+@mixin ellipsis() {
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/*
+* 禁用长按文字选择
+ */
+@mixin selectNone() {
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  -khtml-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
+@mixin trans($time:.3s){
+  transition:all $time; -webkit-transition:all $time;
+}
+@mixin flexbox($jc:center,$ai:center,$ac:center,$fd:row,$fw:nowrap){
+  display: flex;
+  justify-content:$jc;
+  align-items:$ai;
+  align-content:$ac;
+  flex-direction:$fd;
+  flex-wrap:$fw;
+}
+// 多行省略号
+@mixin clamp($line:2){
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+}
