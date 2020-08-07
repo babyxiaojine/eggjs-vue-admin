@@ -28,7 +28,7 @@ module.exports = {
     * @type {boolean} true | false
    * @description 是否展示顶部菜单
    */
-  displayTopMenu: false,
+  displayTopMenu: true,
   /**
    * @type {string | array} 'production' | ['production', 'development']
    * @description Need show err logs component.

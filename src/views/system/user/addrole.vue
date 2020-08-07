@@ -38,7 +38,7 @@
 import {postAxios, getAxios} from '@/utils/request'
 
 export default {
-  name: 'SystemSettingUserAddrole',
+  name: 'SystemUserAddrole',
   filters: {
   },
   data() {

@@ -89,7 +89,7 @@
 <script>
 import {postAxios, getAxios} from '@/utils/request'
 export default {
-  name: 'SystemSettingInterfaceLogs',
+  name: 'SystemInterfaceLogs',
   filters: {
   },
   data() {

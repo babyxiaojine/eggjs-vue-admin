@@ -40,7 +40,7 @@
 <script>
 import {postAxios, getAxios} from '@/utils/request'
 export default {
-  name: 'SystemSettingShop',
+  name: 'SystemShop',
   filters: {
   },
   data() {

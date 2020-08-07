@@ -68,7 +68,7 @@
 <script>
 import {postAxios, getAxios} from '@/utils/request'
 export default {
-  name: 'SystemSettingSystemControl',
+  name: 'SystemSystemControl',
   filters: {
   },
   data() {

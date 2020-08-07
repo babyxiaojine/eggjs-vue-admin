@@ -9,5 +9,14 @@ export function queryAllMenu(menuType) {
     }
   })
 }
+export function queryAllCate(menuType) {
+  return request({
+    url: '/sys/cate/queryAllCate',
+    method: 'post',
+    data: {
+      menuType: menuType
+    }
+  })
+}
 
 

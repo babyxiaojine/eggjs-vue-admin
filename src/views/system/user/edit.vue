@@ -37,7 +37,7 @@ import {postAxios, getAxios} from '@/utils/request'
 import gInput from '@/components/Form/gInput'
 
 export default {
-  name: 'SystemSettingUserEdit',
+  name: 'SystemUserEdit',
   components:{
       gInput,
   },

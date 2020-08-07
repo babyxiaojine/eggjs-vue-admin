@@ -35,7 +35,7 @@
 import {postAxios, getAxios} from '@/utils/request'
 
 export default {
-  name: 'SystemSettingRoleApportion',
+  name: 'SystemRoleApportion',
   filters: {
   },
   data() {

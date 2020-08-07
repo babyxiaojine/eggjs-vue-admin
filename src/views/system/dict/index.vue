@@ -65,7 +65,7 @@
 <script>
 import {postAxios, getAxios} from '@/utils/request'
 export default {
-  name: 'SystemSettingDict',
+  name: 'SystemDict',
   filters: {
   },
   data() {

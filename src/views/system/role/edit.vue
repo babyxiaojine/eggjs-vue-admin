@@ -62,7 +62,7 @@ import {postAxios, getAxios} from '@/utils/request'
 import Enums from '@/configs/enum'
 
 export default {
-  name: 'SystemSettingRoleEdit',
+  name: 'SystemRoleEdit',
   filters: {
   },
   data() {

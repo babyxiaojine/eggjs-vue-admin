@@ -52,7 +52,7 @@
 import {postAxios, getAxios} from '@/utils/request'
 
 export default {
-  name: 'SystemSettingRole',
+  name: 'SystemRole',
   filters: {
   },
   data() {
@@ -70,7 +70,7 @@ export default {
     // 编辑操作
     jumpToEdit(data){
       this.$router.push({
-        name:'SystemSettingRoleEdit',
+        name:'SystemRoleEdit',
         query: {isEdit: true},
         params: data
       })

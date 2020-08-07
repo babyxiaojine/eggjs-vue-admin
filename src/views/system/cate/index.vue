@@ -7,13 +7,18 @@
 
     <template v-if="list && list.length">
       <el-table default-expand-all :data="list" row-key="id" border fit highlight-current-row style="width: 100%" :tree-props="{children: 'subMenu', hasChildren: 'hasChildren'}"  >
-        <el-table-column align="left" label="菜单名称" min-width="220px">
+        <el-table-column align="left" label="ID" min-width="100px">
+          <template slot-scope="scope">
+            <span>{{ scope.row.id }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column align="left" label="栏目名称" min-width="220px">
           <template slot-scope="scope">
             <span>{{ scope.row.name }}</span>
           </template>
         </el-table-column>
 
-        <el-table-column min-width="150px" align="left" label="菜单链接">
+        <el-table-column min-width="150px" align="left" label="栏目链接">
           <template slot-scope="scope">
             <span>{{ scope.row.href }}</span>
           </template>
@@ -45,7 +50,7 @@
           <template slot-scope="{row}">
             <el-button plain type="primary" size="mini" @click="jumpToEdit(row)">编辑</el-button>
             <el-button plain type="danger" size="mini" @click="handleDeleteMenu(row)">删除</el-button>
-            <el-button plain type="success" size="mini" icon="el-icon-bottom-right" @click="jumpToAddNext(row)">添加下级</el-button>
+            <el-button plain type="success" size="mini" icon="el-icon-bottom-right" @click="jumpToAddChild(row)">添加子栏目</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -54,11 +59,11 @@
 </template>
 
 <script>
-import { queryAllMenu } from '@/api/system'
+import { queryAllCate } from '@/api/system'
 import {postAxios} from '@/utils/request'
 
 export default {
-  name: 'SystemSettingMenu',
+  name: 'SystemCate',
   filters: {
   },
   data() {
@@ -75,37 +80,35 @@ export default {
     // 编辑操作
     jumpToEdit(data){
       this.$router.push({
-        name: 'SystemSettingMenuEdit',
-        query: { isEdit:true},
-        params: {
-          ...data,
-          children:''
-        }
+        path: './edit',
+        query: { 
+          isEdit: true,
+          id: data.id,
+          parentId: data.parentId
+        },
       })
     },
-    // 添加下级菜单
-    jumpToAddNext(data){
+    // 添加下级栏目
+    jumpToAddChild(data){
       this.$router.push({
-        name: 'SystemSettingMenuEdit',
+        path: './edit',
         query: {
-          pageTitle:'添加菜单'
-        },
-        params:{
+          pageTitle:'添加栏目',
           parentId: data.id,
-          menuName: data.name
-        }
+          // id: data.id,
+        },
       })
     },
     // 跳转添加页面
     handleAddMenu(){
       this.$router.push({
-        name:'SystemSettingMenuEdit',
-        query: {pageTitle:'添加菜单'}
+        path:'./edit',
+        query: {pageTitle:'添加栏目'}
       })
     },
     // 删除操作
     handleDeleteMenu(data){
-      this.$confirm('此操作将永久删除该菜单, 是否继续?', '提示', {
+      this.$confirm('此操作将永久删除该栏目, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
@@ -118,7 +121,7 @@ export default {
     },
     // 请求删除
     postDeleteMenu(data){
-      postAxios('/sys/menu/deleteMenu',{
+      postAxios('/sys/cate/deleteCate',{
         data
       }).then((res)=>{
         if(res.code === '0000'){
@@ -129,7 +132,7 @@ export default {
     },
     async getList() {
       this.listLoading = true
-      const { data } = await queryAllMenu('0')
+      const { data } = await queryAllCate('0')
       this.list = data;
       this.listLoading = false
     },

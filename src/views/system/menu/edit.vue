@@ -65,7 +65,7 @@ import { queryAllMenu } from '@/api/system'
 import {postAxios, getAxios} from '@/utils/request'
 
 export default {
-  name: 'SystemSettingMenuEdit',
+  name: 'SystemMenuEdit',
   filters: {
   },
   data() {
@@ -157,7 +157,7 @@ export default {
           message: '保存成功',
           type: 'success'
         })
-        this.$appBack({delCache:'SystemSettingMenu'})
+        this.$appBack({delCache:'SystemMenu'})
       }
     },
     // 确认选择上级菜单

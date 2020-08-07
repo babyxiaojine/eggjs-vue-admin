@@ -26,7 +26,7 @@
 import {postAxios, getAxios} from '@/utils/request'
 
 export default {
-  name: 'SystemSettingDictEdit',
+  name: 'SystemDictEdit',
   filters: {
   },
   data() {

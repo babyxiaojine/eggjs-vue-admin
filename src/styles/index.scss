@@ -127,6 +127,8 @@ aside {
 //main-container全局样式
 .app-container {
   padding: 20px;
+  box-sizing: border-box;
+  height: calc(100vh - 84px);
 }
 
 .components-container {
@@ -223,3 +225,9 @@ div.cell.headTh {
 .nodata{background: url(../assets/nodata-file.png) center 200px no-repeat;padding-top: 400px;height:550px;text-align: center;
   .text-nodata{color:#999;line-height: 30px;font-size: 23px;}
 }
+
+
+.app-footer-wrap{height:64px;
+
+}
+.app-footer{position: fixed; bottom: 0; left: 0; right: 0; padding:12px 20px; box-shadow:0 -2px 12px rgba(0,0,0,.12); background: #fff; @include flexbox($jc:flex-end);}
